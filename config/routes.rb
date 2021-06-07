@@ -11,4 +11,12 @@ devise_for :customers, controllers: {
 }
 
  root to: 'customer/homes#top'
+
+ namespace :admin do
+  resources :genres, only:[:index, :new, :create, :destroy]
+ end
+
+ namespace :customer do
+  resources :genres, only:[:index]
+ end
 end
