@@ -2,6 +2,4 @@
 <% @genres.each do |genre| %>
  <%= genre.name %>
 <% end %>
-<div class="add-item" style="display:right">
- <%= link_to "", new_admin_genre_path, class: "fas fa-plus"%>
-</div>cd
+<%= link_to "", new_admin_genre_path, class: "fas fa-plus"%>

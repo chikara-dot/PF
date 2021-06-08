@@ -1,0 +1,23 @@
+<div class="container">
+ <div class="row">
+  <div class="col">
+   <h1>カテゴリー追加</h1>
+   <%= form_with model: @category, url: customer_genre_categories_path, local:true do |f| %>
+   <table class="table table-borderless chikara">
+    <tbody>
+     <tr>
+     <td><%= f.label "名前"%></td>
+     <td><%= f.text_field :name %></td>
+     </tr>
+     <tr>
+     <td><%= f.label "画像"%></td>
+     <td><%= f.attachment_field :image %></td>
+     </tr>
+     <tr><td><%= f.submit 'カテゴリー登録', class: "btn btn-info"%></td></tr>
+
+    </tbody>
+   </table>
+   <% end %>
+  </div>
+ </div>
+</div>

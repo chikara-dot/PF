@@ -17,6 +17,8 @@ devise_for :customers, controllers: {
  end
 
  namespace :customer do
-  resources :genres, only:[:index]
+  resources :genres, only:[:index] do
+  resources :categories
+ end
  end
 end

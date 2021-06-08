@@ -1,0 +1,6 @@
+<%= link_to "", new_customer_genre_category_path, class: "fas fa-plus"%>
+
+<% @categories.each do |category| %>
+ <%= attachment_image_tag category, :image, size: "10x10" %>
+ <%= category.name %>
+<% end %>
