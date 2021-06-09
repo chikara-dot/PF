@@ -6,5 +6,5 @@ class Customer < ApplicationRecord
 
  attachment :image
  has_many :categories, dependent: :destroy
-
+ has_many :posts, dependent: :destroy
 end

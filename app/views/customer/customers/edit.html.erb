@@ -1,0 +1,11 @@
+<h1>プロフィール編集</h1>
+<%= form_with model: @customer, url: customer_customer_path(@customer), local:true do |f| %>
+ <%= f.label "ニックネーム"%>
+ <%= f.text_field :nickname %>
+ <%= f.label "アイコン" %>
+ <%= f.attachment_field :image, fallback: "no_image.jpg" %>
+
+ <%= f.label "自己紹介"%>
+ <%= f.text_field :body %>
+ <%= f.submit "変更する"%>
+<% end %>

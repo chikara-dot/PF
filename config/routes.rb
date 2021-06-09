@@ -17,8 +17,17 @@ devise_for :customers, controllers: {
  end
 
  namespace :customer do
+
   resources :genres, only:[:index] do
-  resources :categories
+   resources :categories do
+    resources :posts
+   end
+  end
+
+  resources :customers do
+   get 'unsubscribe'
+   patch 'withdrawal'
+  end
  end
- end
+
 end

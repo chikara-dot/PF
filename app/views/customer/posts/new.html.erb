@@ -1,0 +1,7 @@
+<%= form_with model: @post, url: customer_genre_category_posts_path(@category.genre_id,@post.category_id), local:true do |f| %>
+ <%= f.label @category.name+"に関することを投稿しましょう"%>
+ <%= f.text_field :title %>
+ <%= f.label "画像"%>
+ <%= f.attachment_field :image %>
+ <%= f.submit '投稿', class: "btn btn-info"%>
+<% end %>

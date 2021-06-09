@@ -1,0 +1,9 @@
+<h1>マイページ</h1>
+ <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "50x50"%>
+ <%= @customer.nickname %>
+ <%= @customer.body %>
+
+<% if @customer.id == current_customer.id %>
+ <%= link_to "プロフィールを編集",edit_customer_customer_path(@customer) %>
+ <%= link_to "退会する", customer_customer_unsubscribe_path(@customer) %>
+<% end %>

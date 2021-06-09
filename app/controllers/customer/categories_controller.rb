@@ -1,12 +1,13 @@
 class Customer::CategoriesController < ApplicationController
-  before_action :set_genre, only: %i[create]
 
   def new
     @category = Category.new
   end
 
   def create
-    @category = @genre.categories.build(category_params)
+    @category = Category.new(category_params)
+    @category.genre_id = params[:genre_id]
+    @category.customer_id = current_customer.id
     @category.save
     redirect_to customer_genre_categories_path
   end
@@ -29,10 +30,8 @@ class Customer::CategoriesController < ApplicationController
 
   private
   def category_params
-    params.require(:category).permit(:name,:image, :genre_id)
+    params.require(:category).permit(:name,:image)
   end
 
-  def set_genre
-    @genre = Genre.find(params[:genre_id])
-  end
+
 end
