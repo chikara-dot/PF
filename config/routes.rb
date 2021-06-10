@@ -25,7 +25,6 @@ devise_for :customers, controllers: {
   end
 
   resources :customers do
-   get 'unsubscribe'
    patch 'withdrawal'
   end
  end
