@@ -18,15 +18,18 @@ devise_for :customers, controllers: {
 
  namespace :customer do
 
-  resources :genres, only:[:index] do
-   resources :categories do
-    resources :posts
+   resources :genres, only:[:index] do
+    resources :categories do
+     resources :posts do
+      resource :favorites, only: [:create, :destroy]
+     end
+    end
    end
-  end
 
-  resources :customers do
-   patch 'withdrawal'
+
+   resources :customers do
+    patch 'withdrawal'
   end
- end
+end
 
 end
