@@ -28,6 +28,9 @@ devise_for :customers, controllers: {
 
 
    resources :customers do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
     patch 'withdrawal'
   end
 end

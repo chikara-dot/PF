@@ -12,4 +12,26 @@ class Customer < ApplicationRecord
    super && (self.is_deleted == false)
   # デフォルトがフォルスならtrueを返す
  end
+
+ has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+# relationshipをreverse_of_relationshipsに置き換える記述。主キーはfollowed_id
+ has_many :followers, through: :reverse_of_relationships, source: :follower
+#  自分をフォローしている人
+
+ has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+ has_many :followings, through: :relationships, source: :followed
+
+
+ def follow(customer_id)
+     relationships.create(followed_id: customer_id)
+ end
+
+ def unfollow(customer_id)
+     relationships.find_by(followed_id: customer_id).destroy
+ end
+
+ def following?(customer)
+     followings.include?(customer)
+    #  include=対象の配列に因数が含まれていればtrueを返す。含まれていればフォローしている
+ end
 end
