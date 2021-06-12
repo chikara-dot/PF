@@ -11,29 +11,26 @@
    <table>
     <tbody>
        <% @posts.each do |post| %>
-      <tr>
-       <td>
-        <p>
-           <div><%= post.created_at.strftime('%Y/%m/%d')%></div>
-           <div class="pl-2"><%= post.customer.nickname %></div>
-        </p>
-        <%= attachment_image_tag post, :image, size: "300x250" %>
-       </td>
-       <td class="center-block post-index-title">
-        <%= post.title %>
-       </td>
-       <td nowrap class="pr-5">
-        <% if post.favorited_by?(current_customer)%>
+         <tr><td><%= post.created_at.strftime('%Y/%m/%d')%></td></tr>
+         <tr><td><%= post.customer.nickname %></td></tr>
+
+       <tr>
+        <td><%= attachment_image_tag post, :image, size: "300x250", fallback: "no_image.jpg" %></td>
+        <td class="pl-2"><%= post.title %></td>
+       </tr>
+       <tr>
+        <td></td>
+        <td class="text-right"><% if post.favorited_by?(current_customer)%>
           <%= link_to customer_genre_category_post_favorites_path(@category.genre_id,@category,post), method: :delete do %>
            ♥<%= post.favorites.count %>いいね
-          <% end %>
-        <% else %>
+          <% end %></td>
+        <td class="text-right"><% else %>
           <%= link_to customer_genre_category_post_favorites_path(@category.genre_id,@category,post), method: :post do %>
-           ♡<%= post.favorites.count %>いいね
+           ♡<%= post.favorites.count %>いいね</td>
           <% end %>
         <% end %>
-       </td>
-      </tr>
+        <td><%= render 'customer/posts/tag', tag_list: post.tag_list %></td>
+       </tr>
       <% end %>
     </tbody>
    </table>

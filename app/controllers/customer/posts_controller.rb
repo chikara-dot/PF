@@ -21,11 +21,16 @@ class Customer::PostsController < ApplicationController
     # postのcategory_id絡むのidを探す記述(category_id: params[:category_id])
   end
 
+  def show
+  end
+
   def destroy
   end
 
   private
   def post_params
-    params.require(:post).permit(:title, :image)
+    params.require(:post).permit(:title, :image, :tag_list)
   end
+
+  
 end

@@ -21,6 +21,9 @@ class Customer < ApplicationRecord
  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
  has_many :followings, through: :relationships, source: :followed
 
+  acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :interests
+
 
  def follow(customer_id)
      relationships.create(followed_id: customer_id)

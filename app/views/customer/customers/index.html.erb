@@ -5,6 +5,8 @@
   <tr>
    <td class="pl-md-5"><%= attachment_image_tag customer, :image, size: "100x100", class: "rounded-circle", fallback: "no_image.jpg" %></td>
    <td class="pl-md-3"><%= link_to customer.nickname, customer_customer_path(customer) %></td>
+   <td><%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer) %></td>
+   <td><%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer) %></td>
   </tr>
   <% end %>
  </tbody>

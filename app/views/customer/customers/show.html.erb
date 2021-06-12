@@ -1,9 +1,9 @@
 <h1>マイページ</h1>
- <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "50x50"%>
+ <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle"%>
  <%= @customer.nickname %>
  <%= @customer.body %>
- <%= @customer.followings.count %>フォロー
- <%= @customer.followers.count %>フォロワー
+ <%= link_to "#{@customer.followings.count}フォロー", customer_customer_followings_path(@customer) %>
+ <%= link_to "#{@customer.followers.count}フォロワー", customer_customer_followers_path(@customer) %>
 
 
 <% if @customer.id == current_customer.id %>
