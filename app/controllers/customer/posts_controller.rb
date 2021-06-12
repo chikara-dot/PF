@@ -22,9 +22,15 @@ class Customer::PostsController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:category_id])
+    @post = Post.find(params[:id])
   end
 
   def destroy
+    @category = Category.find(params[:category_id])
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to customer_genre_category_posts_path
   end
 
   private
@@ -32,5 +38,5 @@ class Customer::PostsController < ApplicationController
     params.require(:post).permit(:title, :image, :tag_list)
   end
 
-  
+
 end

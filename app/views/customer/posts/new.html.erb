@@ -1,6 +1,6 @@
 <%= form_with model: @post, url: customer_genre_category_posts_path(@category.genre_id,@post.category_id), local:true do |f| %>
 <!--ネストしているためidが二つ必要-->
- <div class="ml-5 mt-2"><h2 class="border-bottom"><%= f.label @category.name+"に関することを投稿しましょう！！！"%></h2></div>
+ <div class="ml-5 mt-2"><h2 class="border-bottom"><%= @category.name+"に関することを投稿しましょう！！！"%></h2></div>
  <div class="row">
   <div class="col ml-5"><%= f.text_area :title , size:"70x8" %></div>
   <div class="col"><h4><%= f.label "画像"%></h4><br>
@@ -8,8 +8,9 @@
   </div>
  </div>
  <div class="ml-5">
-  <%= f.label :タグをつけることができます！ %><br>
+  <%= f.label :タグをつけることができます！ %>,で区切ることで複数のタグをつけることができます！<br>
   <%= f.text_field :tag_list, value: @post.tag_list.join(',')%>
  </div>
  <div class="col-lg-10 text-right"><%= f.submit '投稿', class: "btn btn-info btn-lg"%></div>
 <% end %>
+<h6 class="border rounded border-danger col-lg-4 ml-5">※投稿はコメント欄から削除することができます<br>1度投稿したものを編集することはできません</h6>

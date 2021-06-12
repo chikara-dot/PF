@@ -1,7 +1,2 @@
 <h2>フォロワー</h2>
-<% @customer.each do |customer| %>
- <%= attachment_image_tag customer, :image, fallback: "no_image.jpg", size: "50x50", class: "rounded-circle"%>
- <%= customer.nickname %>
- <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer) %>
- <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer) %>
-<% end %>
+<%= render 'customer/customers/customer', customer:@customer%>

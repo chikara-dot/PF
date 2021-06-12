@@ -1,0 +1,18 @@
+<div class="container">
+    <% customer.each do |customer| %>
+    <div class="row">
+     <div class="col-lg-2">
+         <%= attachment_image_tag customer, :image, fallback: "no_image.jpg", size: "100x80", class: "rounded-circle"%>
+     </div>
+     <div class="col-lg-2 mr-5">
+         <%= customer.nickname %>
+     </div>
+     <div class="col-lg-2 ml-5">
+         <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer) %>
+     </div>
+     <div class="col-lg-4">
+         <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer) %>
+     </div>
+    </div>
+    <% end %>
+</div>
