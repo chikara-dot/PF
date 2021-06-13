@@ -29,7 +29,7 @@
            ♡<%= post.favorites.count %>いいね</td>
           <% end %>
         <% end %>
-        <td><%= link_to "", customer_genre_category_post_path(@category.genre_id,@category,post),class: "far fa-comment-dots"%></td>
+        <td nowrap><%= link_to "#{post.comment.count}コメント", customer_genre_category_post_path(@category.genre_id,@category,post),class: "far fa-comment-dots"%></td>
         <td nowrap><%= render 'customer/posts/tag', tag_list: post.tag_list %></td>
        </tr>
       <% end %>

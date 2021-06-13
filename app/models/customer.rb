@@ -8,6 +8,7 @@ class Customer < ApplicationRecord
  has_many :categories, dependent: :destroy
  has_many :posts, dependent: :destroy
  has_many :favorites, dependent: :destroy
+ has_many :comments, dependent: :destroy
  def active_for_authentication?
    super && (self.is_deleted == false)
   # デフォルトがフォルスならtrueを返す

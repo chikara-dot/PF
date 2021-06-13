@@ -1,5 +1,4 @@
 class Customer::PostsController < ApplicationController
-
   def new
     @category = Category.find(params[:category_id])
     @post = Post.new(category_id: @category.id)
@@ -18,12 +17,13 @@ class Customer::PostsController < ApplicationController
     # eachの外に記述したいものなので定義している
     @posts = Post.where(category_id: params[:category_id])
     # 全てのpostの中から一つのカテゴリーの投稿(post)を持ってくる
-    # postのcategory_id絡むのidを探す記述(category_id: params[:category_id])
+    # postのcategory_idカラムのidを探す記述(category_id: params[:category_id])
   end
 
   def show
     @category = Category.find(params[:category_id])
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def destroy
@@ -40,3 +40,5 @@ class Customer::PostsController < ApplicationController
 
 
 end
+
+

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <table class="col-lg-5">
+    <table class="col-lg-12">
       <tbody>
         <tr><td><%= @post.created_at.strftime('%Y/%m/%d')%></td>
         <tr><td><%= @post.customer.nickname %></td></tr>
@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <td></td>
-          <td class="text-right"><% if @post.favorited_by?(current_customer)%>
+          <td nowrap class="text-right"><% if @post.favorited_by?(current_customer)%>
             <%= link_to customer_genre_category_post_favorites_path(@category.genre_id,@category,@post), method: :delete do %>
              ♥<%= @post.favorites.count %>いいね
             <% end %></td>
@@ -19,11 +19,36 @@
              ♡<%= @post.favorites.count %>いいね</td>
             <% end %>
           <% end %>
+          <td nowrap><%= @post.comment.count%>コメント</td>
           <% if @post.customer.id == current_customer.id %>
-          <td><%= link_to "投稿を削除",customer_genre_category_post_path(@category.genre_id,@category,@post), method: :delete%></td>
+          <td nowrap><%= link_to "投稿を削除",customer_genre_category_post_path(@category.genre_id,@category,@post), method: :delete, class: "btn btn-danger"%></td>
           <% end %>
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+       <%= form_with(model: @comment, url: customer_genre_category_post_comments_path(@category.genre_id,@category,@post,@comment),local: true) do |f| %>
+        <%= f.text_area :comment,placeholder: "コメントをここに", size: "50x4"%>
+        <%= f.submit "コメントする！"%>
+       <% end %>
+    </div>
+  </div>
+
+   <h3>コメント欄</h3>
+      <% @post.comment.each do |comment| %>
+      <div class="row">
+       <div class="col-lg-2 mr-5"><%= comment.created_at.strftime('%Y/%m/%d')%></div>
+       <div nowrap class="col-lg-4"><%= comment.customer.nickname %></div>
+       <div class="col-lg-5"><%= comment.comment%></div>
+       <div class="col-lg-8 text-right">
+         <% if comment.customer == current_customer %>
+          <%= link_to "コメントを削除", customer_genre_category_post_comment_path(@category.genre_id,@category,@post,comment.id), method: :delete, class: "btn btn-danger" %>
+         <% end %>
+       </div>
+      </div>
+      <% end %>
   </div>
 </div>
