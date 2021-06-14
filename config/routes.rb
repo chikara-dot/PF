@@ -35,6 +35,7 @@ devise_for :customers, controllers: {
     patch 'withdrawal'
   end
   get 'about' => 'homes#about'
+  resources :notifications, only: [:index]
 end
 
 end

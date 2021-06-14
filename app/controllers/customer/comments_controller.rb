@@ -4,6 +4,9 @@ class Customer::CommentsController < ApplicationController
     comment = current_customer.comments.new(comment_params)
     comment.post_id = post.id
     comment.save
+    # 通知
+    post = comment.post
+    post.create_notification_comment(current_customer, comment.id)
     redirect_back(fallback_location: root_path)
   end
 

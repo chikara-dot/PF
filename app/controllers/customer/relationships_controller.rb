@@ -12,6 +12,8 @@ class Customer::RelationshipsController < ApplicationController
 
  def followings
    customer = Customer.find(params[:customer_id])
+   # 通知
+   current_customer.create_notification_follow(current_customer)
    @customers = customer.followings
  end
 

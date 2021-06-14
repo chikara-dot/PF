@@ -4,6 +4,8 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+ default_scope -> { order(created_at: :desc) }
+
  attachment :image
  has_many :categories, dependent: :destroy
  has_many :posts, dependent: :destroy
@@ -21,6 +23,11 @@ class Customer < ApplicationRecord
 
  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
  has_many :followings, through: :relationships, source: :followed
+
+ has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+ # 自分からの通知
+ has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+ # 相手からの通知
 
   acts_as_taggable_on :tags
   acts_as_taggable_on :skills, :interests
