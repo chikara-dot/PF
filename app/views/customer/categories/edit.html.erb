@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="row">
+  <div class="col-lg-8">
+   <h1>カテゴリー編集</h1>
+   <%= form_with model: @category, url: customer_genre_category_path(@category.genre_id,@category), methd: :putch, local:true do |f| %>
+   <table class="table table-borderless">
+    <tbody>
+     <tr>
+     <td><%= f.label "名前"%></td>
+     <td><%= f.text_field :name %></td>
+     </tr>
+     <tr>
+     <td><%= f.label "画像"%></td>
+     <td><%= f.attachment_field :image %></td>
+     </tr>
+     <tr><td></td><td class="text-right"><%= f.submit 'カテゴリー編集', class: "btn btn-info"%></td></tr>
+     <tr><td></td><td class="text-right"><%= link_to "カテゴリーを削除", customer_genre_category_path(@category.genre_id,@category), method: :delete, "data-confirm" => "カテゴリーを削除したら投稿も全て削除されます", class:"btn btn-danger" %></td></tr>
+    </tbody>
+   </table>
+   <% end %>
+  </div>
+ </div>
+</div>
+<h6 class="border rounded border-danger col-lg-4 ml-5">※カテゴリー名と画像を変更できます</h6>

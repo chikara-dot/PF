@@ -1,0 +1,8 @@
+<h1>ジャンル一覧</h1>
+<div class="container">
+  <div class="row">
+    <% genres.each do |genre| %>
+     <div class="col-md-6 text-center mt-5"><%= link_to genre.name, customer_genre_categories_path(genre), class: "btn btn-warning btn-block"%></div>
+    <% end%>
+  </div>
+</div>

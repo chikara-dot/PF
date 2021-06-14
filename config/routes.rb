@@ -34,6 +34,7 @@ devise_for :customers, controllers: {
     get 'followers' => 'relationships#followers', as: 'followers'
     patch 'withdrawal'
   end
+  get 'about' => 'homes#about'
 end
 
 end

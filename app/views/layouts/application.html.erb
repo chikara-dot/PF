@@ -12,12 +12,49 @@
 
   <body>
     <header>
-    <% if customer_signed_in? %>
-      <%= link_to "マイページ", customer_customer_path(current_customer) %>
-      <%= link_to "ジャンル一覧", customer_genres_path %>
-      <%= link_to "ユーザー一覧", customer_customers_path %>
-      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-    <% end %>
+
+    <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand p-3 icon" href="/"><%= image_tag('') %></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if customer_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "マイページ", customer_customer_path(current_customer), class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ジャンル', customer_genres_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ユーザ一覧', customer_customers_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "About", customer_about_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ジャンル一覧", customer_genres_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", customer_session_path, class: 'nav-link text-dark' %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
     </header>
     <%= yield %>
     <footer class="footer">
