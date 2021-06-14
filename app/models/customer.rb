@@ -45,4 +45,16 @@ class Customer < ApplicationRecord
      followings.include?(customer)
     #  include=対象の配列に因数が含まれていればtrueを返す。含まれていればフォローしている
  end
+
+ def create_notification_follow(current_customer)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_customer.id, id, 'follow'])
+    if temp.blank?
+      notification = current_customer.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+ end
+  # 同じ人が何回もフォローしても通知が来ないようにする
 end

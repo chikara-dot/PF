@@ -1,4 +1,8 @@
-<h1>マイページ</h1>
+<% if @customer.id == current_customer.id %>
+ <h1>マイページ</h1>
+<% else %>
+ <h1><%= @customer.nickname %></h1>
+<% end %>
  <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle"%>
  <%= @customer.nickname %>
  <%= @customer.body %>
