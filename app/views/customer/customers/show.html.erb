@@ -3,22 +3,31 @@
 <% else %>
  <h1><%= @customer.nickname %></h1>
 <% end %>
- <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle"%>
- <%= @customer.nickname %>
- <%= @customer.body %>
- <%= link_to "#{@customer.followings.count}フォロー", customer_customer_followings_path(@customer) %>
- <%= link_to "#{@customer.followers.count}フォロワー", customer_customer_followers_path(@customer) %>
 
-
-<% if @customer.id == current_customer.id %>
- <%= link_to "プロフィールを編集",edit_customer_customer_path(@customer) %>
- <%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
- <!--data-confirmで退会ボタンクリック時にアラート発生-->
-<% else %>
- <% if current_customer. following?(@customer) %>
-  <%= link_to "フォローを外す", customer_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary" %>
- <% else %>
-  <%= link_to "フォローする", customer_customer_relationships_path(@customer), method: :post, class: "btn btn-success"%>
- <% end %>
-
-<% end %>
+<div class="container">
+ <div class="row">
+  <%= attachment_image_tag @customer, :image, fallback: "no_image.jpg", size: "300x300", class:"rounded-circle"%>
+  <table>
+   <tbody>
+    <tr><td class="pl-4"><strong><%= @customer.nickname %></strong></td></tr>
+    <tr>
+     <td class="pl-5"><%= link_to "#{@customer.followings.count}フォロー", customer_customer_followings_path(@customer), class: "btn btn-info" %></td>
+     <td class="pl-2"><%= link_to "#{@customer.followers.count}フォロワー", customer_customer_followers_path(@customer), class: "btn btn-info" %></td>
+    </tr>
+    <tr><td class="pl-5 pt-5"><%= @customer.body %></td></tr>
+   </tbody>
+  </table>
+ </div>
+ <div class="row">
+    <% if @customer.id == current_customer.id %>
+     <div class="col-lg-10 text-right"><%= link_to "プロフィールを編集",edit_customer_customer_path(@customer), class: "btn btn-success" %></div>
+     <!--data-confirmで退会ボタンクリック時にアラート発生-->
+    <% else %>
+     <% if current_customer. following?(@customer) %>
+      <div class="col-lg-10 text-right"><%= link_to "フォローを外す", customer_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary" %></div>
+     <% else %>
+      <div class="col-lg-10 text-right"><%= link_to "フォローする", customer_customer_relationships_path(@customer), method: :post, class: "btn btn-success"%></div>
+     <% end %>
+    <% end %>
+ </div>
+</div>

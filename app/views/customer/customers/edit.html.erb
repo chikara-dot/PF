@@ -8,4 +8,5 @@
  <%= f.label "自己紹介"%>
  <%= f.text_field :body %>
  <%= f.submit "変更する"%>
+ <%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
 <% end %>
