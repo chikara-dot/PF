@@ -57,4 +57,8 @@ class Customer < ApplicationRecord
     end
  end
   # 同じ人が何回もフォローしても通知が来ないようにする
+
+ def self.search(word)
+  @customers = Customer.where("nickname LIKE ?","%#{word}%")
+ end
 end

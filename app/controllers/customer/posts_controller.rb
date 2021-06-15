@@ -33,6 +33,13 @@ class Customer::PostsController < ApplicationController
     redirect_to customer_genre_category_posts_path
   end
 
+  def report
+    post = Post.find(params[:post_id])
+    post.create_notification_report(current_customer)
+    redirect_back(fallback_location: root_path)
+  end
+
+
   private
   def post_params
     params.require(:post).permit(:title, :image, :tag_list)

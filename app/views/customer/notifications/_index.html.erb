@@ -1,29 +1,33 @@
 <% notifications.each do |notification| %>
  <% visitor = notification.visitor %>
  <% visited = notification.visited %>
-<div class="col-md-6 mx-auto">
-  <div class="form-inline">
+<div class="col-lg-10 text-center">
+  <div class="">
+    <% unless notification.action == 'report' %>
       <%= notification.created_at.strftime('%Y/%m/%d')%>
       <%= attachment_image_tag visitor, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle" %>
       <%= visitor.nickname %>
-
       <%= 'さんが'%>
+    <% end %>
 
       <% case notification.action %>
+      <% when 'report' then %>
+        <%= "あなたの投稿を通報されました"%>
       <% when 'follow' then %>
         <%= "あなたをフォローしました"%>
       <% when 'favorite' then %>
         <%= "あなたの投稿にいいねしました"%>
       <% when 'comment' then %>
-        <span>
-        <% if notification.post.customer_id == visited.id %>
-          <%= "あなたの投稿"%>
-        <% else %>
-          <%= notification.post.customer.nickname + 'さんの投稿'%>
-        <% end %>
-        <%= "にコメントしました" %>
-        </span>
+        <%= "あなたの投稿にコメントしました"%>
       <% end %>
+
+
+  </div>
+  <div>
+    <% if notification.post %>
+     <%= notification.post.title %>
+    <% end %>
+
   </div>
 </div>
 <% end %>

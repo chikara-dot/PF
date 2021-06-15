@@ -1,2 +1,7 @@
 <h1>ユーザー</h1>
+<%= form_tag(customer_search_path, method: :get) do %>
+ <%= text_field_tag'search[word]' %>
+ <%= submit_tag "検索" %>
+<% end %>
+
 <%= render 'customer/customers/customer', customer:@customer%>

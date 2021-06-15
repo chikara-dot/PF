@@ -32,6 +32,7 @@
         <td nowrap><%= link_to "#{post.comment.count}コメント", customer_genre_category_post_path(@category.genre_id,@category,post),class: "far fa-comment-dots"%></td>
         <td nowrap><%= render 'customer/posts/tag', tag_list: post.tag_list %></td>
        </tr>
+       <tr><td><%= link_to "通報する", customer_report_path(post) %></td></tr>
       <% end %>
     </tbody>
    </table>

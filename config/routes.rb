@@ -27,6 +27,7 @@ devise_for :customers, controllers: {
     end
    end
 
+   get 'reports/:post_id' => 'posts#report', as: 'report'
 
    resources :customers do
     resource :relationships, only: [:create, :destroy]
@@ -36,6 +37,7 @@ devise_for :customers, controllers: {
   end
   get 'about' => 'homes#about'
   resources :notifications, only: [:index]
+  get 'search' => 'searches#search'
 end
 
 end

@@ -9,3 +9,4 @@ class Customer::NotificationsController < ApplicationController
 
 end
 # 未確認の通知を受け取った後に、未確認→確認ずみになるように更新をしている
+Notification.where(action: 'report')

@@ -61,6 +61,15 @@ class Post < ApplicationRecord
     # 自分の投稿に対するコメントの場合は、通知済みとする
   end
 
-
+  def create_notification_report(current_customer)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_customer.id, customer_id, id, 'report'])
+    if temp.blank?
+      current_customer.active_notifications.create(
+        post_id: id,
+        visited_id: customer_id,
+        action: 'report'
+      )
+    end
+  end
 end
 
