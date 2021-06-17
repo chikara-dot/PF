@@ -6,9 +6,6 @@
       <div><%= attachment_image_tag category, :image, size: "400x300", class: "card-img-top" %></div>
       <div class="card-body">
        <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category), class: "card-title" %>
-      <% if category.customer_id == current_customer.id %>
-       <%= link_to "変更", edit_customer_genre_category_path(category.genre_id,category), class: "card-text"%>
-      <% end %>
         </div>
      </div>
     <% end %>

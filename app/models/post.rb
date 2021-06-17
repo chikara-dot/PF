@@ -15,6 +15,10 @@ class Post < ApplicationRecord
     favorites.where(customer_id: customer.id).exists?
   end
 
+  def reported_by?(customer)
+    Notification.where(visitor_id: customer.id,post_id: self.id).exists?
+  end
+
   def create_notification_favorite(current_customer)
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ?", current_customer.id, customer_id, id, 'favorite'])
     # すでにいいねされているか検索。同じ人が２回いいねする可能性があるため

@@ -1,21 +1,22 @@
 <h1>プロフィール編集</h1>
 <%= form_with model: @customer, url: customer_customer_path(@customer), local:true do |f| %>
-<table>
+<table class="ml-5">
  <tr>
-  <td> <%= f.label "ニックネーム"%>
-  <%= f.text_field :nickname %></td>
+  <td class="pt-5 pl-5"><%= f.label "ニックネーム:"%></td>
+  <td class="pt-5 pl-5"><%= f.text_field :nickname %></td>
  </tr>
  <tr>
-  <td><%= f.label "アイコン" %>
-  <%= f.attachment_field :image, fallback: "no_image.jpg" %></td>
+  <td class="pt-5 pl-5"><%= f.label "アイコン:" %></td>
+  <td class="pt-5 pl-5"><%= f.attachment_field :image, fallback: "no_image.jpg" %></td>
  </tr>
+ <tr>
+  <td class="pt-5 pl-5"><%= f.label "自己紹介:"%></td>
+  <td class="pt-5 pl-5"><%= f.text_area :body, size: "50x6" %></td>
 
-
- <%= f.label "自己紹介"%>
- <%= f.text_field :body %>
- <% if customer_signed_in? && @customer.id == current_customer.id %>
-  <%= f.submit "変更する"%>
-  <%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
- <% end %>
+  <% if customer_signed_in? && @customer.id == current_customer.id %>
+   <td class="col-lg-4 text-right"><%= f.submit "変更する", class:"btn btn-primary rounded-pill btn-lg"%></td>
+   <td><%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger rounded-pill btn-lg" %></td>
+  <% end %>
+ </tr>
 </table>
 <% end %>

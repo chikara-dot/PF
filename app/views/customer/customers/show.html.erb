@@ -14,11 +14,11 @@
      <td class="pl-5"><%= link_to "#{@customer.followings.count}フォロー", customer_customer_followings_path(@customer), class: "btn btn-info" %></td>
      <td class="pl-2"><%= link_to "#{@customer.followers.count}フォロワー", customer_customer_followers_path(@customer), class: "btn btn-info" %></td>
     </tr>
-    <tr><td class="pl-5 pt-5"><%= @customer.body %></td></tr>
    </tbody>
   </table>
  </div>
  <div class="row">
+    <div class=""><%= @customer.body %></div>
     <% if @customer.id == current_customer.id %>
      <div class="col-lg-10 text-right"><%= link_to "プロフィールを編集",edit_customer_customer_path(@customer), class: "btn btn-success" %></div>
      <!--data-confirmで退会ボタンクリック時にアラート発生-->
