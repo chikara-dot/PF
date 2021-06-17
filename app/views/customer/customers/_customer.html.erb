@@ -1,18 +1,29 @@
 <div class="container">
     <% customer.each do |customer| %>
     <div class="row">
-     <div class="col-lg-2">
-         <%= attachment_image_tag customer, :image, fallback: "no_image.jpg", size: "100x80", class: "rounded-circle"%>
-     </div>
-     <div class="col-lg-2 mr-5">
-         <strong><%= link_to customer.nickname, customer_customer_path(customer) %></strong>
-     </div>
-     <div class="col-lg-2 ml-5">
-         <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer), class: "btn btn-info" %>
-     </div>
-     <div class="col-lg-4">
-         <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer), class: "btn btn-info" %>
-     </div>
+       <div class="col-lg-2">
+           <%= attachment_image_tag customer, :image, fallback: "no_image.jpg", size: "100x80", class: "rounded-circle"%>
+       </div>
+       <div class="col-lg-2 mr-5">
+           <strong><%= link_to customer.nickname, customer_customer_path(customer) %></strong>
+       </div>
+       <div class="col-lg-2 ml-5">
+           <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer), class: "btn btn-info" %>
+       </div>
+       <div class="col-lg-4">
+           <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer), class: "btn btn-info" %>
+       </div>
     </div>
+   <div class="row">
+     <div class="col-lg-10 text-right">
+       <% if admin_signed_in?%>
+         <% if customer.is_deleted == false %>
+          <%= link_to "退会させる", customer_customer_withdrawal_path(customer),method: :patch, "data-confirm" => "本当に退会させますか？", class: "btn  btn-outline-danger" %>
+         <% else %>
+          <%= "退会ずみ"%>
+         <% end %>
+       <% end %>
+     </div>
+   </div>
     <% end %>
 </div>

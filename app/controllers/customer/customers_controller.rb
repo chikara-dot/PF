@@ -25,12 +25,16 @@ class Customer::CustomersController < ApplicationController
   @customer = Customer.find(params[:customer_id])
   @customer.update(is_deleted: true)
   #is_deletedカラムにフラグを立てる（defaultはfalse)
-  reset_session
   flash[:notice] = "ありがとうございました！またのご利用をお待ちしています！"
-  redirect_to root_path
+  if admin_signed_in?
+   redirect_to customer_customers_path
+  else
+   reset_session
+   redirect_to root_path
+  end
  end
 
- 
+
  private
 
  def customer_params

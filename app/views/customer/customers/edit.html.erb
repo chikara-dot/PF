@@ -1,12 +1,21 @@
 <h1>プロフィール編集</h1>
 <%= form_with model: @customer, url: customer_customer_path(@customer), local:true do |f| %>
- <%= f.label "ニックネーム"%>
- <%= f.text_field :nickname %>
- <%= f.label "アイコン" %>
- <%= f.attachment_field :image, fallback: "no_image.jpg" %>
+<table>
+ <tr>
+  <td> <%= f.label "ニックネーム"%>
+  <%= f.text_field :nickname %></td>
+ </tr>
+ <tr>
+  <td><%= f.label "アイコン" %>
+  <%= f.attachment_field :image, fallback: "no_image.jpg" %></td>
+ </tr>
+
 
  <%= f.label "自己紹介"%>
  <%= f.text_field :body %>
- <%= f.submit "変更する"%>
- <%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+ <% if customer_signed_in? && @customer.id == current_customer.id %>
+  <%= f.submit "変更する"%>
+  <%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger" %>
+ <% end %>
+</table>
 <% end %>

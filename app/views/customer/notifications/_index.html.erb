@@ -2,7 +2,7 @@
  <% visitor = notification.visitor %>
  <% visited = notification.visited %>
 <div class="col-lg-10 text-center">
-  <div class="">
+  <div>
     <% unless notification.action == 'report' %>
       <%= notification.created_at.strftime('%Y/%m/%d')%>
       <%= attachment_image_tag visitor, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle" %>
@@ -12,7 +12,7 @@
 
       <% case notification.action %>
       <% when 'report' then %>
-        <%= "あなたの投稿を通報されました"%>
+        <%= "あなたの投稿が通報されました"%>
       <% when 'follow' then %>
         <%= "あなたをフォローしました"%>
       <% when 'favorite' then %>

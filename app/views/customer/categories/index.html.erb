@@ -1,14 +1,18 @@
 <div class="col-lg-12 text-right">カテゴリーを追加したい場合はこちらから<%= link_to "", new_customer_genre_category_path, class: "fas fa-plus fa-5x"%></div>
-<div class="container">
- <div class="row">
-  <% @categories.each do |category| %>
-  <div class="col-md-6 text-center">
-   <div class="pt-5"><%= attachment_image_tag category, :image, size: "400x300" %></div>
-   <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category) %>
-   <% if category.customer_id == current_customer.id %>
-    <%= link_to "変更", edit_customer_genre_category_path(category.genre_id,category)%>
-   <% end %>
-  </div>
-  <% end %>
+<div class="col ml-5">
+ <div class="card-deck card-colums lg-12" style="width:80rem;">
+    <% @categories.each do |category| %>
+     <div class="card text-white bg-dark">
+      <div><%= attachment_image_tag category, :image, size: "400x300", class: "card-img-top" %></div>
+      <div class="card-body">
+       <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category), class: "card-title" %>
+      <% if category.customer_id == current_customer.id %>
+       <%= link_to "変更", edit_customer_genre_category_path(category.genre_id,category), class: "card-text"%>
+      <% end %>
+        </div>
+     </div>
+    <% end %>
  </div>
 </div>
+
+

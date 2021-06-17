@@ -1,0 +1,15 @@
+<div class="col lg-10 text-center">
+    <% @report.each do |notification| %>
+     <% visitor = notification.visitor %>
+     <% visited = notification.visited %>
+      <%= visitor.nickname %>
+      <%= "が" %>
+      <%= visited.nickname %>
+      <%= "を通報しました" %>
+    <div>
+      <% if notification.post %>
+       <%= notification.post.title %>
+      <% end %>
+    </div>
+    <% end %>
+</div>

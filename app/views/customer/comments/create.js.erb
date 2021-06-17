@@ -1,0 +1,3 @@
+$("#comment_count_<%= @post.id %>").html("<%= j(render 'customer/comments/count', post: @post, category: @category) %>");
+$("#post_comments_<%= @post.id %>").html("<%= j(render 'customer/comments/comments', post: @post, category: @category) %>");
+$("textarea").val("");

@@ -1,0 +1,12 @@
+<% post.comment.each do |comment| %>
+  <div class="row">
+    <div class="col-lg-2 mr-5"><%= comment.created_at.strftime('%Y/%m/%d')%></div>
+    <div nowrap class="col-lg-4"><%= comment.customer.nickname %></div>
+    <div class="col-lg-5"><%= comment.comment%></div>
+    <div class="col-lg-8 text-right">
+      <% if comment.customer == current_customer %>
+       <%= link_to "コメントを削除", customer_genre_category_post_comment_path(category.genre_id,category,post,comment.id), method: :delete,remote: true, class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

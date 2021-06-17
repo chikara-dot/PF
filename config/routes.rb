@@ -14,6 +14,7 @@ devise_for :customers, controllers: {
 
  namespace :admin do
   resources :genres, only:[:index, :new, :create, :destroy]
+  resources :notifications, only: [:index]
  end
 
  namespace :customer do
