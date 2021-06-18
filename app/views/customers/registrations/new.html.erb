@@ -1,20 +1,20 @@
-<h2>新規登録</h2>
+<h2 class="ml-5 mt-2">新規登録</h2>
 
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<table class="table">
+<table class="table ml-5">
       <%= render "customers/shared/error_messages", resource: resource %>
     <tbody>
      <tr>
       <td><%= f.label "名前" %><br></td>
-      <td><%= f.text_field :last_name, autofocus: true, placeholder: "(姓) 山田" %></td>
-      <td><%= f.text_field :first_name, placeholder: "（名）花子" %></td>
+      <td><%= f.text_field :last_name, autofocus: true, placeholder: "(姓) 山田" %>
+      <%= f.text_field :first_name, placeholder: "（名）花子" %></td>
      </tr>
 
       <tr>
        <td><%= f.label "フリガナ"%><br></td>
-       <td><%= f.text_field :last_name_kana, placeholder: "（セイ）ヤマダ"%></td>
-       <td><%= f.text_field :first_name_kana, placeholder: "（ナ）ハナコ"%></td>
+       <td><%= f.text_field :last_name_kana, placeholder: "（セイ）ヤマダ"%>
+       <%= f.text_field :first_name_kana, placeholder: "（ナ）ハナコ"%></td>
       </tr>
 
       <tr>

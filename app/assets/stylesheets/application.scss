@@ -26,7 +26,6 @@
   right: -8px;
   margin-top: -15px;
   border: 15px solid transparent;
-  border-left: 15px solid #a58eff;
   z-index: 0;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -44,5 +43,21 @@
   background: #a58eff;
   border-radius: 50%;
   box-sizing: border-box;
+  background-image: url("wood.jpg");
+  opacity: 0.75;
+}
 
+
+.header{
+ background-image: url("wood.jpg");
+ background-size: cover;
+}
+
+
+.body{
+ font-family: "AppleSDGothicNeo-Heavy","Apple SD Gothic Neo"; font-weight: 900;
+}
+
+.tag{
+ color: green;
 }

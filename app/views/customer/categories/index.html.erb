@@ -9,9 +9,9 @@
      <div class="card text-white bg-dark">
       <div><%= attachment_image_tag category, :image, fallback: "no_image.jpg", size: "300x250", class: "card-img-top" %></div>
       <div class="card-body">
-       <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category), class: "card-title" %>
+       <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category), class: "card-title btn btn-warning" %>
       <% if category.customer_id == current_customer.id %>
-       <%= link_to "変更", edit_customer_genre_category_path(category.genre_id,category), class: "card-text"%>
+       <%= link_to "変更", edit_customer_genre_category_path(category.genre_id,category), class: "card-text pl-5"%>
       <% end %>
         </div>
      </div>
