@@ -42,7 +42,7 @@ class Customer::PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :image, :tag_list)
+    params.require(:post).permit(:title, {images: []}, :tag_list)
   end
 
 

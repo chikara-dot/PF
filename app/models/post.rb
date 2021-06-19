@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   belongs_to :category
   belongs_to :customer
-  attachment :image
+  has_many_attached :images
   has_many :favorites, dependent: :destroy
   has_many :comment, dependent: :destroy
   has_many :notifications, dependent: :destroy

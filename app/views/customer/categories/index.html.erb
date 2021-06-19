@@ -6,7 +6,7 @@
  <div class="card-deck card-colums lg-12">
     <% @categories.each do |category| %>
     <div class="col-4 mb-3">
-     <div class="card text-white bg-dark">
+     <div class="card text-white shadow-lg p-3 mb-5 bg-white rounded">
       <div><%= attachment_image_tag category, :image, fallback: "no_image.jpg", size: "300x250", class: "card-img-top" %></div>
       <div class="card-body">
        <%= link_to category.name, customer_genre_category_posts_path(category.genre_id,category), class: "card-title btn btn-warning" %>

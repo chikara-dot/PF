@@ -13,11 +13,14 @@
        <% @posts.each do |post| %>
          <tr><td><%= post.created_at.strftime('%Y/%m/%d')%></td></tr>
          <tr><td><%= link_to post.customer.nickname, customer_customer_path(post.customer_id) %></td></tr>
-
-       <tr>
-        <td><%= attachment_image_tag post, :image, size: "300x250" %></td>
-        <td class="pl-2"><%= post.title %></td>
-       </tr>
+         <tr>
+          <td class="article">
+          <% post.images.each do |image| %>
+           <%= image_tag image, size: "300x250" %>
+          <% end %>
+          </td>
+         <td class="pl-2"><%= post.title %></td>
+         </tr>
        <tr>
         <td id="favorite_buttons_<%= post.id %>">
           <%= render "customer/favorites/favorites", post: post, category: @category %>
