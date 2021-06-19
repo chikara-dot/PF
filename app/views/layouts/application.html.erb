@@ -36,7 +36,7 @@
               <li class="nav-item">
                 <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: 'nav-link text-dark fas fa-sign-out-alt' %>
               </li>
-      
+
               <% elsif admin_signed_in? %>
               <li class="nav-item">
                 <%= link_to "通報一覧", admin_notifications_path, class: 'nav-link text-dark fas fa-bell' %>
@@ -69,7 +69,7 @@
         </div>
       </nav>
     </header>
-    <%= link_to "", 'javascript:history.back()', class: "fas fa-undo" %>
+    <div class="back"><%= link_to "", 'javascript:history.back()', class: "fas fa-undo fa-3x" %></div>
     <%= yield %>
     <footer class="footer">
       <div class="container">
