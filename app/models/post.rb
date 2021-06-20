@@ -16,7 +16,7 @@ class Post < ApplicationRecord
   end
 
   def reported_by?(customer)
-    Notification.where(visitor_id: customer.id,post_id: self.id).exists?
+    Notification.where(visitor_id: customer.id,post_id: id).exists?
   end
 
   def create_notification_favorite(current_customer)
@@ -75,5 +75,14 @@ class Post < ApplicationRecord
       )
     end
   end
+
+  def written_by?(current_customer)
+    # メソッド名は何をしているのかを誰でもわかるように書く↑postはログインしているユーザーによって書かれたかどうか
+    # current_customerが引数で指定する　モデル内ではcurrent_customerが使えないのでview側でも引数として定義する
+    customer == current_customer
+    # レシーバーがself（self=post)
+  end
+
+
 end
 

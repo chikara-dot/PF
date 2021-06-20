@@ -18,8 +18,8 @@
            <%= render "customer/favorites/favorites", post: @post, category: @category %>
           </td>
           <td nowrap id="comment_count_<%= @post.id %>"><%= render "customer/comments/count", post: @post %></td>
-          <% if @post.customer.id == current_customer.id %>
-          <td nowrap><%= link_to "投稿を削除",customer_genre_category_post_path(@category.genre_id,@category,@post), method: :delete, class: "btn btn-danger"%></td>
+          <% if @post.written_by?(current_customer) %>
+           <td nowrap><%= link_to "投稿を削除",customer_genre_category_post_path(@category.genre_id,@category,@post), method: :delete, class: "btn btn-danger"%></td>
           <% end %>
         </tr>
       </tbody>

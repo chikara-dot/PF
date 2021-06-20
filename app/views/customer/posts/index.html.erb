@@ -28,12 +28,8 @@
         <td nowrap><%= link_to "#{post.comment.count}コメント", customer_genre_category_post_path(@category.genre_id,@category,post),class: "far fa-comment-dots"%></td>
         <td nowrap><%= render 'customer/posts/tag', tag_list: post.tag_list %></td>
        </tr>
-       <tr class="border-bottom border-info"><td class="text-right">
-       <% if post.reported_by?(current_customer) %>
-        <%= "通報ずみ"%>
-       <% else %>
-        <%= link_to "通報する", customer_report_path(post), class:"btn btn-outline-danger" %>
-       <% end %>
+       <tr class="border-bottom border-info"><td class="text-right" id="report_<%= post.id %>">
+        <%= render 'customer/posts/report', post: post %>
        </td></tr>
       <% end %>
     </tbody>

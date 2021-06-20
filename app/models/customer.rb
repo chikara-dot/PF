@@ -61,4 +61,11 @@ class Customer < ApplicationRecord
  def self.search(word)
   @customers = Customer.where("nickname LIKE ?","%#{word}%")
  end
+
+ def current_user?(current_customer)
+   id == current_customer.id
+ end
+
+
+
 end

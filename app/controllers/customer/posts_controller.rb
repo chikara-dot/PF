@@ -34,9 +34,8 @@ class Customer::PostsController < ApplicationController
   end
 
   def report
-    post = Post.find(params[:post_id])
-    post.create_notification_report(current_customer)
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    @post.create_notification_report(current_customer)
   end
 
 

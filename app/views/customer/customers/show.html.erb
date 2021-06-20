@@ -19,9 +19,8 @@
  </div>
  <div class="row">
     <div class=""><%= @customer.body %></div>
-    <% if @customer.id == current_customer.id %>
+    <% if @customer.current_user?(current_customer) %>
      <div class="col-lg-10 text-right"><%= link_to "プロフィールを編集",edit_customer_customer_path(@customer), class: "btn btn-success" %></div>
-     <!--data-confirmで退会ボタンクリック時にアラート発生-->
     <% else %>
      <% if current_customer. following?(@customer) %>
       <div class="col-lg-10 text-right"><%= link_to "フォローを外す", customer_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary" %></div>

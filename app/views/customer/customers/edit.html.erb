@@ -15,7 +15,26 @@
 
   <% if customer_signed_in? && @customer.id == current_customer.id %>
    <td class="col-lg-4 text-right"><%= f.submit "変更する", class:"btn btn-primary rounded-pill btn-lg"%></td>
-   <td><%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger rounded-pill btn-lg" %></td>
+
+   <td>
+    <button type="button" class="btn btn-danger rounded-pill btn-lg" data-toggle="modal" data-target="#exampleModal">
+     退会する
+    </button>
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+       <div class="modal-body">
+        本当に退会しますか？
+       </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <button type="button" class="btn btn-danger"><%= link_to "退会する", customer_customer_withdrawal_path(current_customer),method: :patch, class: "text-light" %></button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </td>
+
   <% end %>
  </tr>
 </table>

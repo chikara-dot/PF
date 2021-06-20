@@ -9,19 +9,9 @@
       <%= visitor.nickname %>
       <%= 'さんが'%>
     <% end %>
-
-      <% case notification.action %>
-      <% when 'report' then %>
-        <%= "あなたの投稿が通報されました"%>
-      <% when 'follow' then %>
-        <%= "あなたをフォローしました"%>
-      <% when 'favorite' then %>
-        <%= "あなたの投稿にいいねしました"%>
-      <% when 'comment' then %>
-        <%= "あなたの投稿にコメントしました"%>
-      <% end %>
-
-
+    
+      <%= notification_action_message(notification.action) %>
+      
   </div>
   <div>
     <% if notification.post %>
