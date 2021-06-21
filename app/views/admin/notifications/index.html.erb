@@ -4,9 +4,9 @@
       <% @report.each do |notification| %>
        <% visitor = notification.visitor %>
        <% visited = notification.visited %>
-        <%= link_to visitor.nickname, customer_customer_path(current_admin) %>
+        <%= link_to visitor.nickname, customer_customer_path(visitor) %>
         <%= "が" %>
-        <%= link_to visited.nickname, customer_customer_path(current_admin) %>
+        <%= link_to visited.nickname, customer_customer_path(visited) %>
         <%= "を通報しました" %>
       <div class="report_title mb-2">
         <% if notification.post %>

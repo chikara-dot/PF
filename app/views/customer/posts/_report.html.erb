@@ -1,5 +1,7 @@
-<% if post.reported_by?(current_customer) %>
- <%= "通報ずみ"%>
-<% else %>
- <%= link_to "通報する", customer_report_path(post), class:"btn btn-outline-danger", remote: true, data: { confirm: '本当に通報しますか？' } %>
+<% if current_customer.present? %>
+ <% if post.reported_by?(current_customer) %>
+  <%= "通報ずみ"%>
+ <% else %>
+  <%= link_to "通報する", customer_report_path(post), class:"btn btn-outline-danger", remote: true, data: { confirm: '本当に通報しますか？' } %>
+ <% end %>
 <% end %>

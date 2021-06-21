@@ -1,4 +1,5 @@
 class Customer::FavoritesController < ApplicationController
+ before_action :authenticate_customer!
 
 def create
   @category = Category.find(params[:category_id])

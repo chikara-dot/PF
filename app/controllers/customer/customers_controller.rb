@@ -1,4 +1,5 @@
 class Customer::CustomersController < ApplicationController
+  before_action :authenticate_customer!,except: [:show, :index]
 
  def index
   @customer = Customer.all

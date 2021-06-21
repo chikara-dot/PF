@@ -1,5 +1,5 @@
 class Customer::RelationshipsController < ApplicationController
- before_action :authenticate_customer!
+ before_action :authenticate_customer!,except: [:followings, :followers]
  def create
    current_customer.follow(params[:customer_id])
    # 通知

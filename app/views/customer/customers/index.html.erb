@@ -1,9 +1,13 @@
-<h1>ユーザー</h1>
-<div class="col-lg-10 text-right mb-2">
- <%= form_tag(customer_search_path, method: :get) do %>
-  <%= "ユーザー検索"%><br>
-  <%= text_field_tag'search[word]' %>
-  <%= submit_tag "検索" %>
- <% end %>
+<div class="container">
+ <div class="row">
+  <h1 class="col mt-5 h1">ユーザー</h1>
+  <div class="col-lg-10 text-right mb-2 mt-3">
+   <%= form_tag(customer_search_path, method: :get) do %>
+    <%= "ユーザー検索"%><br>
+    <%= text_field_tag'search[word]' %>
+    <%= submit_tag "検索" %>
+   <% end %>
+  </div>
+  <%= render 'customer/customers/customer', customer:@customer%>
+ </div>
 </div>
-<%= render 'customer/customers/customer', customer:@customer%>

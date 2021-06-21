@@ -1,4 +1,5 @@
 class Customer::CommentsController < ApplicationController
+   before_action :authenticate_customer!
   def create
     @category = Category.find(params[:category_id])
     @post = Post.find(params[:post_id])

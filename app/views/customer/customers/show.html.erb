@@ -1,8 +1,10 @@
-<% if @customer.id == current_customer.id %>
- <h1>マイページ</h1>
-<% else %>
- <h1><%= @customer.nickname %></h1>
-<% end %>
+<div class="h1 mypage mt-5 ml-5">
+ <% if current_customer.present? && @customer.id == current_customer.id %>
+  <h1>マイページ</h1>
+ <% else %>
+  <h1><%= @customer.nickname %></h1>
+ <% end %>
+</div>
 
 <div class="container">
  <div class="row">
@@ -19,13 +21,15 @@
  </div>
  <div class="row">
     <div class=""><%= @customer.body %></div>
-    <% if @customer.current_user?(current_customer) %>
-     <div class="col-lg-10 text-right"><%= link_to "プロフィールを編集",edit_customer_customer_path(@customer), class: "btn btn-success" %></div>
-    <% else %>
-     <% if current_customer. following?(@customer) %>
-      <div class="col-lg-10 text-right"><%= link_to "フォローを外す", customer_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary" %></div>
+    <% if current_customer.present? %>
+     <% if @customer.current_user?(current_customer) %>
+      <div class="col-lg-10 text-right"><%= link_to "プロフィールを編集",edit_customer_customer_path(@customer), class: "btn btn-success" %></div>
      <% else %>
-      <div class="col-lg-10 text-right"><%= link_to "フォローする", customer_customer_relationships_path(@customer), method: :post, class: "btn btn-success"%></div>
+      <% if current_customer. following?(@customer) %>
+       <div class="col-lg-10 text-right"><%= link_to "フォローを外す", customer_customer_relationships_path(@customer), method: :delete, class: "btn btn-primary" %></div>
+      <% else %>
+       <div class="col-lg-10 text-right"><%= link_to "フォローする", customer_customer_relationships_path(@customer), method: :post, class: "btn btn-success"%></div>
+      <% end %>
      <% end %>
     <% end %>
  </div>

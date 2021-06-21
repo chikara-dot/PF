@@ -1,4 +1,5 @@
 class Customer::PostsController < ApplicationController
+   before_action :authenticate_customer!,except: [:index, :show]
   def new
     @category = Category.find(params[:category_id])
     @post = Post.new(category_id: @category.id)

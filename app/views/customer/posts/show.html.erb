@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <table class="col-lg-12">
+    <table class="col-lg-12 mt-5">
       <tbody>
         <tr><td><%= @post.created_at.strftime('%Y/%m/%d')%></td>
         <tr><td><%= @post.customer.nickname %></td></tr>
@@ -28,10 +28,12 @@
 
   <div class="row">
     <div class="col-lg-12">
+     <% if current_customer.present?%>
        <%= form_with(model: @comment, url: customer_genre_category_post_comments_path(@category.genre_id,@category,@post,@comment),remote: true) do |f| %>
         <%= f.text_area :comment,placeholder: "コメントをここに", size: "50x4"%>
         <%= f.submit "コメントする！"%>
        <% end %>
+      <% end %>
     </div>
   </div>
 
