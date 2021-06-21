@@ -83,6 +83,11 @@ class Post < ApplicationRecord
     # レシーバーがself（self=post)
   end
 
+  def self.search(word, category_id)
+    @category = Category.find(category_id)
+    @posts = @category.posts.tagged_with(word)
+  end
+
 
 end
 

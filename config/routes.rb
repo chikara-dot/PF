@@ -39,6 +39,7 @@ devise_for :customers, controllers: {
   get 'about' => 'homes#about'
   resources :notifications, only: [:index]
   get 'search' => 'searches#search'
+  get 'tag_search' => 'searches#tag_search'
 end
 
 end
