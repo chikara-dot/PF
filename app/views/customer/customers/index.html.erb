@@ -1,7 +1,7 @@
 <h1>ユーザー</h1>
 <div class="col-lg-10 text-right mb-2">
  <%= form_tag(customer_search_path, method: :get) do %>
-  <%= "ユーザー検索"%>
+  <%= "ユーザー検索"%><br>
   <%= text_field_tag'search[word]' %>
   <%= submit_tag "検索" %>
  <% end %>

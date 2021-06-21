@@ -1,15 +1,19 @@
-<div class="col lg-10 text-center">
-    <% @report.each do |notification| %>
-     <% visitor = notification.visitor %>
-     <% visited = notification.visited %>
-      <%= visitor.nickname %>
-      <%= "が" %>
-      <%= visited.nickname %>
-      <%= "を通報しました" %>
-    <div>
-      <% if notification.post %>
-       <%= notification.post.title %>
+<div class="container">
+ <div class="row">
+  <div class="col lg-10 text-center mt-5">
+      <% @report.each do |notification| %>
+       <% visitor = notification.visitor %>
+       <% visited = notification.visited %>
+        <%= link_to visitor.nickname, customer_customer_path(current_admin) %>
+        <%= "が" %>
+        <%= link_to visited.nickname, customer_customer_path(current_admin) %>
+        <%= "を通報しました" %>
+      <div class="report_title mb-2">
+        <% if notification.post %>
+         <%= notification.post.title %>
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <% end %>
+  </div>
+ </div>
 </div>

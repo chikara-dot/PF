@@ -45,6 +45,7 @@
   box-sizing: border-box;
   background-image: url("wood.jpg");
   opacity: 0.75;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
 
@@ -67,4 +68,8 @@
   // 常に同じ位置に表示される
   right: 40px;
   top: 100px;
+}
+
+.report_title{
+ opacity: 0.5;
 }
