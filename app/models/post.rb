@@ -28,7 +28,7 @@ class Post < ApplicationRecord
         visited_id: customer_id,
         action: 'favorite'
       )
-      # いいねされいない場合のみ、通知レコードを作成
+      # いいねされていない場合のみ、通知レコードを作成
       if notification.visitor_id == notification.visited_id
         notification.checked = true
       end
@@ -88,6 +88,16 @@ class Post < ApplicationRecord
     @posts = @category.posts.tagged_with(word)
   end
 
+
+
+   def image_or_title_present?(images)
+     if images.nil? && self.title == ""
+       false
+     else
+       true
+     end
+   end
+  # postでimageを保存しないのでバリデーションが使えないならメソッドで定義する。
 
 end
 

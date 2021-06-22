@@ -5,10 +5,14 @@ class Customer::CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     comment = current_customer.comments.new(comment_params)
     comment.post_id = @post.id
-    comment.save
-    # 通知
-    post = comment.post
-    post.create_notification_comment(current_customer, comment.id)
+    if
+      comment.save
+      # 通知
+      post = comment.post
+      post.create_notification_comment(current_customer, comment.id)
+    else
+      render :show
+    end
   end
 
   def destroy

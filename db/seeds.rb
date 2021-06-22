@@ -10,3 +10,7 @@ Admin.create!(
   email: 'test@test',
   password: '123456',
 )
+
+Genre.create!(
+  name: 'スポーツ',
+)

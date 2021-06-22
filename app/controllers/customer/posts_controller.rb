@@ -9,8 +9,17 @@ class Customer::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
     @post.category_id = params[:category_id]
-    @post.save
-    redirect_to customer_genre_category_posts_path
+
+    if @post.image_or_title_present?(post_params[:images])
+     @post.save
+      redirect_to customer_genre_category_posts_path
+    else
+      @category = Category.find(params[:category_id])
+      render :new
+    end
+
+
+
   end
 
   def index

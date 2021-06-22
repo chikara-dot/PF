@@ -1,6 +1,14 @@
 class Customer < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+validates :email, presence: true
+validates :last_name,    length: { in: 1..15 }
+validates :first_name,    length: { in: 1..15 }
+validates :last_name_kana,    length: { in: 1..15 }
+validates :first_name_kana,    length: { in: 1..15 }
+validates :nickname,    length: { in: 1..15 }
+validates :body,    length: { maximum: 75 }
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

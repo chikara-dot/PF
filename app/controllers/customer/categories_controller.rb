@@ -8,8 +8,12 @@ class Customer::CategoriesController < ApplicationController
     @category = Category.new(category_params)
     @category.genre_id = params[:genre_id]
     @category.customer_id = current_customer.id
-    @category.save
-    redirect_to customer_genre_categories_path
+    if
+     @category.save
+     redirect_to customer_genre_categories_path
+    else
+      render :new
+    end
   end
 
   def index

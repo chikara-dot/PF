@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
+  validates :comment, presence: true
 
   default_scope -> { order(created_at: :desc) }
 
