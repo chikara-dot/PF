@@ -43,14 +43,14 @@
   background: #a58eff;
   border-radius: 50%;
   box-sizing: border-box;
-  background-image: url("wood.jpg");
+  background-image: image-url("wood.jpg");
   opacity: 0.75;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
 
 .header{
- background-image: url("wood.jpg");
+ background-image: image-url("wood.jpg");
  background-size: cover;
 }
 
@@ -117,4 +117,17 @@ footer{
  background-color: #FFEEFF;
  margin-top: 20px;
 
+}
+
+.about{
+ height: 50px;
+ width: 260px;
+}
+
+.about-top{
+ color: #158b2b;
+}
+
+.about-body{
+ color: #3399FF;
 }
