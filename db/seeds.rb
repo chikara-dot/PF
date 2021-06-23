@@ -14,3 +14,7 @@ Admin.create!(
 Genre.create!(
   name: 'スポーツ',
 )
+
+Genre.create!(
+  name: '動物',
+)
