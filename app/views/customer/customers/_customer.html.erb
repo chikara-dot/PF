@@ -8,10 +8,10 @@
            <strong><%= link_to customer.nickname, customer_customer_path(customer) %></strong>
        </div>
        <div class="col-lg-2 ml-5">
-           <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer), class: "btn btn-info" %>
+           <%= link_to "#{customer.followings.count}フォロー", customer_customer_followings_path(customer), class: "btn btn-outline-info" %>
        </div>
        <div class="col-lg-4">
-           <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer), class: "btn btn-info" %>
+           <%= link_to "#{customer.followers.count}フォロワー", customer_customer_followers_path(customer), class: "btn btn-outline-info" %>
        </div>
     </div>
    <div class="row">

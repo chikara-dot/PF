@@ -1,3 +1,6 @@
+<div class="text-danger">
+<%= flash[:notice] %>
+</div>
 <%= form_with model: @post, url: customer_genre_category_posts_path(@category.genre_id,@post.category_id), local:true do |f| %>
 <!--ネストしているためidが二つ必要-->
  <div class="ml-5 mt-5"><h2 class="border-bottom"><%= @category.name+"に関することを投稿しましょう！！！"%></h2></div>

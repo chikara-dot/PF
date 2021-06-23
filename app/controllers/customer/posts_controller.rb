@@ -11,9 +11,10 @@ class Customer::PostsController < ApplicationController
     @post.category_id = params[:category_id]
 
     if @post.image_or_title_present?(post_params[:images])
-     @post.save
+      @post.save
       redirect_to customer_genre_category_posts_path
     else
+      flash[:notice] = "本文か画像どちらかを入力してください"
       @category = Category.find(params[:category_id])
       render :new
     end

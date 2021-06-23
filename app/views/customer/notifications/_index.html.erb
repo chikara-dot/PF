@@ -5,6 +5,7 @@
    <% visited = notification.visited %>
   <div class="col-lg-10 text-center">
     <div class="pt-1">
+    <% if visited.id = visitor.id %>
       <% unless notification.action == 'report' %>
         <%= notification.created_at.strftime('%Y/%m/%d')%>
         <%= attachment_image_tag visitor, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle" %>
@@ -19,6 +20,7 @@
       <% end %>
     </div>
   </div>
+    <% end %>
   <% end %>
  </div>
 </div>
