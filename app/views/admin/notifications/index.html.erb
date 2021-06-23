@@ -7,6 +7,7 @@
       <% @report.each do |notification| %>
        <% visitor = notification.visitor %>
        <% visited = notification.visited %>
+        <% unless visitor == visited %>
         <%= link_to visitor.nickname, customer_customer_path(visitor) %>
         <%= "が" %>
         <%= link_to visited.nickname, customer_customer_path(visited) %>
@@ -16,6 +17,7 @@
          <%= notification.post.title %>
         <% end %>
       </div>
+      <% end %>
       <% end %>
   </div>
  </div>

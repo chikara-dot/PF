@@ -1,25 +1,25 @@
 <div class="container">
  <div class="row">
   <% notifications.each do |notification| %>
-   <% visitor = notification.visitor %>
-   <% visited = notification.visited %>
-  <div class="col-lg-10 text-center">
-    <div class="pt-1">
-    <% if visited.id = visitor.id %>
-      <% unless notification.action == 'report' %>
-        <%= notification.created_at.strftime('%Y/%m/%d')%>
-        <%= attachment_image_tag visitor, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle" %>
-        <%= link_to visitor.nickname, customer_customer_path(visitor) %>
-        <%= 'さんが'%>
-      <% end %>
-        <%= notification_action_message(notification.action) %>
-    </div>
-    <div class="report_title pb-2">
-      <% if notification.post %>
-       <%= notification.post.title %>
-      <% end %>
-    </div>
-  </div>
+    <% visitor = notification.visitor %>
+    <% visited = notification.visited %>
+    <% unless visited == visitor %>
+     <% unless notification.action == 'report' %>
+      <div class="col-lg-10 text-center">
+        <div class="pt-1">
+          <%= notification.created_at.strftime('%Y/%m/%d')%>
+          <%= attachment_image_tag visitor, :image, fallback: "no_image.jpg", size: "50x50", class:"rounded-circle" %>
+          <%= link_to visitor.nickname, customer_customer_path(visitor) %>
+          <%= 'さんが'%>
+          <%= notification_action_message(notification.action) %>
+        </div>
+        <div class="report_title pb-2">
+          <% if notification.post %>
+            <%= notification.post.title %>
+          <% end %>
+        </div>
+      </div>
+     <% end %>
     <% end %>
   <% end %>
  </div>
