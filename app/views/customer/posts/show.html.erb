@@ -37,9 +37,11 @@
     </div>
   </div>
 
+   <div class="shadow-lg p-3 mb-5 bg-white rounded">
    <h3>コメント欄</h3>
       <div id="post_comments_<%= @post.id %>">
            <%= render "customer/comments/comments", post: @post, category: @category %>
       </div>
+   </div>
   </div>
 </div>
