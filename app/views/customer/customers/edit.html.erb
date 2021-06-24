@@ -14,10 +14,10 @@
   <td class="pt-5 pl-5"><%= f.text_area :body, size: "50x6" %></td>
 
   <% if customer_signed_in? && @customer.id == current_customer.id %>
-   <td class="col-lg-4 text-right"><%= f.submit "変更する", class:"btn btn-primary rounded-pill"%></td>
+   <td class="col-lg-4 text-right"><%= f.submit "変更する", class:"btn btn-primary rounded-pill btn-lg"%></td>
 
-   <td>
-    <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#exampleModal">
+   <td nowrap>
+    <button type="button" class="btn btn-danger rounded-pill btn-lg" data-toggle="modal" data-target="#exampleModal">
      退会する
     </button>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
