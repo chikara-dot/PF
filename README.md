@@ -30,10 +30,13 @@ https://cacoo.com/diagrams/crA9XuEDV9MksDrU-CFC70.png
 
 
 ### テーブル定義書
+https://docs.google.com/spreadsheets/d/1OQa7-zl36QRMjhJDCocDMEc4FHwsyrTMzHaXrXP_Mck/edit#gid=1329379895
 
 ### ER 図
 https://cacoo.com/diagrams/vhBopC2hN3lL4TyE/350BD
 
+###アプリケーション詳細設計
+https://docs.google.com/spreadsheets/d/1Tm8XwV85vE-L-XFW322yG-xT5omTx4Oasl-G2AI-AzI/edit#gid=0
 
 ## チャレンジ要素一覧
 
