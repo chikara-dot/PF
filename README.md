@@ -35,7 +35,7 @@ https://docs.google.com/spreadsheets/d/1OQa7-zl36QRMjhJDCocDMEc4FHwsyrTMzHaXrXP_
 ### ER 図
 https://cacoo.com/diagrams/vhBopC2hN3lL4TyE/350BD
 
-###アプリケーション詳細設計
+### アプリケーション詳細設計
 https://docs.google.com/spreadsheets/d/1Tm8XwV85vE-L-XFW322yG-xT5omTx4Oasl-G2AI-AzI/edit#gid=0
 
 ## チャレンジ要素一覧
