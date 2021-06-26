@@ -46,13 +46,15 @@ describe '[STEP1] ユーザログイン前のテスト' do
   end
 
   describe 'カテゴリー画面のテスト' do
-   let!(:genre) { Genre.create! }
-   let!(:category) { Category.create!(:category,name:'a',image_id:'no_image.jpg')}
+   let!(:customer) { create(:customer) }
+   let!(:genre) { create(:genre) }
+   let!(:category) { create(:category,customer_id: customer.id, genre_id: genre.id)}
    before do
-     customer_genre_categories_path(genre.id)
+     visit customer_genre_categories_path(genre.id)
    end
    it 'postへのリンクテスト' do
-     expect(page).to have_link "/customer/genres/#{genre.id}/categories/#{category.id}/posts"
+    byebug
+     expect(page).to have_content category.name
    end
  end
 end
