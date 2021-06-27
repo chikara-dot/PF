@@ -53,7 +53,6 @@ describe '[STEP1] ユーザログイン前のテスト' do
      visit customer_genre_categories_path(genre.id)
    end
    it 'postへのリンクテスト' do
-    byebug
      expect(page).to have_content category.name
    end
  end
