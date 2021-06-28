@@ -44,11 +44,11 @@ https://docs.google.com/spreadsheets/d/1rqVvi_Q2jGNXigc3CjUsRVR74CmRIyHXqFSBbIRP
 
 ## 補足
 
-ゲストID
+ゲストID<br>
 email:k@k<br>
 password:kc0209<br>
 
-管理者ID
+管理者ID<br>
 email:abc@abc<br>
 password:123456<br>
 
