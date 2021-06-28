@@ -42,6 +42,16 @@ https://docs.google.com/spreadsheets/d/1Tm8XwV85vE-L-XFW322yG-xT5omTx4Oasl-G2AI-
 
 https://docs.google.com/spreadsheets/d/1rqVvi_Q2jGNXigc3CjUsRVR74CmRIyHXqFSBbIRPcJ4/edit?usp=sharing
 
+## 補足
+
+ゲストID
+email:k@k<br>
+password:kc0209<br>
+
+管理者ID
+email:abc@abc<br>
+password:123456<br>
+
 ## 開発環境
 
 - OS：Linux(CentOS)
