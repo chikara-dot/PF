@@ -13,13 +13,13 @@ devise_for :customers, controllers: {
  root to: 'customer/homes#top'
 
  namespace :admin do
-  resources :genres, only:[:index, :new, :create, :destroy]
+  resources :genres, only:[:index, :new, :create, :update, :destroy]
   resources :notifications, only: [:index]
  end
 
  namespace :customer do
 
-   resources :genres, only:[:index] do
+   resources :genres, only:[:index, :create, :new] do
     resources :categories do
      resources :posts do
       resource :favorites, only: [:create, :destroy]

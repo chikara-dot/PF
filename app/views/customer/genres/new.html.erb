@@ -1,0 +1,5 @@
+<%= form_with model:@genre, url: customer_genres_path, method: :post, local:true do |f| %>
+ <%= f.label "新しく追加して欲しいジャンル名"%>
+ <%= f.text_field :name %>
+ <%= f.submit "追加して欲しいジャンルを送る" %>
+<%end%>

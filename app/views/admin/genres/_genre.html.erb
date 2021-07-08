@@ -4,8 +4,26 @@
   </div>
   <div class="row">
     <% genres.each do |genre| %>
-     <div class="col-md-6 text-center mt-5"><%= link_to genre.name, customer_genre_categories_path(genre), class: "btn genre-btn" %></div>
-    <% end%>
+        <% if admin_signed_in? %>
+          <div class="col-md-6 text-center mt-5"><%= link_to genre.name, customer_genre_categories_path(genre), class: "btn genre-btn" %>
+          <%= form_with model:genre, url: admin_genre_path(genre), method: :patch, local: true do |f| %>
+          <%= f.radio_button :enable, :true %>
+          <%= f.label :enable, "有効", {value: :true, style: "display: inline-block;"} %>
+          <%= f.radio_button :enable, :false %>
+          <%= f.label :enable, "無効", {value: :false, style: "display: inline-block;"} %>
+          <%= f.submit "更新"%>
+          </div>
+        <% end %>
+        <% else %>
+         <% if genre.enable == true %>
+          <div class="col-md-6 text-center mt-5"><%= link_to genre.name, customer_genre_categories_path(genre), class: "btn genre-btn" %></div>
+         <% end %>
+        <% end %>
+    <% end %>
+
   </div>
   </div>
 </div>
+<% if current_customer.present? %>
+<div class="text-right">新しいジャンルを追加したい場合は<%= link_to "こちら", new_customer_genre_path %>からお問い合わせください！</div>
+<%end%>
