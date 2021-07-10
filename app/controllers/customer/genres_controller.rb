@@ -8,9 +8,15 @@ class Customer::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(genre_params)
-    @genre.save
-    redirect_to customer_genres_path
+      @genre = Genre.new(genre_params)
+    if
+      @genre.save
+      flash[:notice] = "追加して欲しいジャンルを送信しました"
+      redirect_to customer_genres_path
+    else
+      flash.now[:notice] = "追加して欲しいジャンルを入力してください"
+      render :new
+    end
   end
 
   private
