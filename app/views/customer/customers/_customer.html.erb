@@ -18,7 +18,7 @@
      <div class="col-lg-10 text-right">
        <% if admin_signed_in?%>
          <% if customer.is_deleted == false %>
-          <%= link_to "退会させる", customer_customer_withdrawal_path(customer),method: :patch, "data-confirm" => "本当に退会させますか？", class: "btn  btn-outline-danger" %>
+          <%= link_to "退会させる", admin_customer_withdrawal_path(customer),method: :patch, "data-confirm" => "本当に退会させますか？", class: "btn  btn-outline-danger" %>
          <% else %>
           <%= "退会ずみ"%>
          <% end %>

@@ -23,17 +23,11 @@ class Customer::CustomersController < ApplicationController
 
 
  def withdrawal
-
   @customer = Customer.find(params[:customer_id])
   @customer.update(is_deleted: true)
   #is_deletedカラムにフラグを立てる（defaultはfalse)
-  flash[:notice] = "ありがとうございました！またのご利用をお待ちしています！"
-  if admin_signed_in?
-   redirect_to customer_customers_path
-  else
    reset_session
    redirect_to root_path
-  end
  end
 
 

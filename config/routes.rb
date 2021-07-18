@@ -15,10 +15,12 @@ devise_for :customers, controllers: {
  namespace :admin do
   resources :genres, only:[:index, :new, :create, :update, :destroy]
   resources :notifications, only: [:index]
+  resources :customers do
+   patch 'withdrawal'
+  end
  end
 
  namespace :customer do
-
    resources :genres, only:[:index, :create, :new] do
     resources :categories do
      resources :posts do
