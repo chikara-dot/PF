@@ -6,10 +6,11 @@
   カテゴリーを追加したい場合はこちらから<%= link_to "", new_customer_genre_category_path, class: "fas fa-plus fa-5x"%>
  <% end %>
 </div>
+</div>
 
  <div class="card-deck card-colums lg-12 mt-5">
     <% @categories.each do |category| %>
-    <div class="col-4 mb-3">
+    <div class="col-lg-4 mb-3">
      <div class="card text-white shadow-lg p-3 mb-5 bg-white rounded">
       <div><%= attachment_image_tag category, :image, fallback: "no_image.jpg", size: "300x250", class: "card-img-top" %></div>
       <div class="card-body">
@@ -22,7 +23,7 @@
     </div>
     <% end %>
  </div>
-</div>
+
 </div>
 
 
